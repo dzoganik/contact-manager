@@ -46,4 +46,9 @@ This is a simple contact management application built on the Laravel framework.
     ./vendor/bin/sail artisan migrate
     ```
 
+7.  **Build frontend assets:**
+    ```bash
+    ./vendor/bin/sail npm install && ./vendor/bin/sail npm run build
+    ```
+
 The application should now be running at [http://localhost](http://localhost).
