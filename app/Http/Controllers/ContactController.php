@@ -5,17 +5,22 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
 use App\Models\Contact;
+use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $contacts = Contact::latest()->paginate(15);
+        $query = $request->input('search');
 
-        return view('contacts.index', compact('contacts'));
+        $contacts = Contact::search($query)
+            ->simplePaginate(15)
+            ->withQueryString();
+
+        return view('contacts.index', compact('contacts', 'query'));
     }
 
     /**

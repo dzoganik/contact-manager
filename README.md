@@ -51,4 +51,9 @@ This is a simple contact management application built on the Laravel framework.
     ./vendor/bin/sail npm install && ./vendor/bin/sail npm run build
     ```
 
+8.  **Prepare the Search Index:**
+    ```bash
+    ./vendor/bin/sail artisan scout:sync-index-settings
+    ```
+
 The application should now be running at [http://localhost](http://localhost).

@@ -14,6 +14,27 @@
         </div>
     @endif
 
+    <div class="mb-4">
+        <form action="{{ route('contacts.index') }}" method="GET">
+            <div class="flex">
+                <input type="text" name="search" placeholder="Search by name, surname, or email..." 
+                       class="shadow appearance-none border rounded-l w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
+                       value="{{ $query ?? '' }}">
+
+                @if ($query)
+                    <a href="{{ route('contacts.index') }}" 
+                    class="flex items-center bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4">
+                        Reset
+                    </a>
+                @endif
+
+                <button type="submit" class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-r">
+                    Search
+                </button>
+            </div>
+        </form>
+    </div>
+
     <div class="bg-white p-6 rounded-lg shadow-md">
         @if($contacts->isEmpty())
             <p>No contacts found.</p>
