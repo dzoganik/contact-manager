@@ -39,6 +39,15 @@
                                 <a href="{{ route('contacts.edit', $contact) }}" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors duration-150">
                                     Edit
                                 </a>
+
+                                <form action="{{ route('contacts.destroy', $contact) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you sure you want to delete this contact?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" 
+                                            class="bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-3 rounded text-xs transition-colors duration-150">
+                                        Delete
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
