@@ -1,7 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-2xl font-semibold mb-4">Contact List</h2>
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-semibold">Contact List</h2>
+        <a href="{{ route('contacts.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Add New Contact
+        </a>
+    </div>
+
+    @if (session('success'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+            <span class="block sm:inline">{{ session('success') }}</span>
+        </div>
+    @endif
 
     <div class="bg-white p-6 rounded-lg shadow-md">
         @if($contacts->isEmpty())
