@@ -31,9 +31,9 @@ class ContactController extends Controller
      */
     public function store(StoreContactRequest $request)
     {
-        Contact::create($request->validated());
+        $contact = Contact::create($request->validated());
 
-        return redirect()->route('contacts.index')
+        return redirect()->route('contacts.show', $contact)
             ->with('success', 'Contact created successfully.');
     }
 
@@ -60,7 +60,7 @@ class ContactController extends Controller
     {
         $contact->update($request->validated());
 
-        return redirect()->route('contacts.index')
+        return redirect()->route('contacts.show', $contact)
             ->with('success', 'Contact updated successfully.');
     }
 
