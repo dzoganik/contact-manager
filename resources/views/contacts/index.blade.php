@@ -36,6 +36,11 @@
                             <td class="px-6 py-4 whitespace-nowrap">{{ $contact->surname }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $contact->email }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <a href="{{ route('contacts.show', $contact) }}"
+                                class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors duration-150">
+                                    Show
+                                </a>
+                                
                                 <a href="{{ route('contacts.edit', $contact) }}" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors duration-150">
                                     Edit
                                 </a>
