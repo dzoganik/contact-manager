@@ -24,6 +24,9 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Surname</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                        <th class="relative px-6 py-3">
+                            <span class="sr-only">Actions</span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
@@ -32,6 +35,11 @@
                             <td class="px-6 py-4 whitespace-nowrap">{{ $contact->name }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $contact->surname }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $contact->email }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <a href="{{ route('contacts.edit', $contact) }}" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors duration-150">
+                                    Edit
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
