@@ -21,7 +21,7 @@ class ContactXmlParserTest extends TestCase
     {
         parent::setUp();
         $this->tempFile = tempnam(sys_get_temp_dir(), 'xml');
-        $this->parser = new ContactXmlParser();
+        $this->parser = new ContactXmlParser;
     }
 
     protected function tearDown(): void
@@ -84,7 +84,7 @@ class ContactXmlParserTest extends TestCase
             $this->assertSame($expectedContacts[$index]['name'], $contactData['name']);
             $this->assertSame($expectedContacts[$index]['surname'], $contactData['surname']);
             $this->assertSame($expectedContacts[$index]['email'], $contactData['email']);
-            
+
             $this->assertArrayHasKey('created_at', $contactData);
             $this->assertArrayHasKey('updated_at', $contactData);
             $this->assertEquals(Carbon::getTestNow(), $contactData['created_at']);
@@ -127,7 +127,7 @@ class ContactXmlParserTest extends TestCase
     public function test_parse_throws_if_file_cannot_be_opened(): void
     {
         $invalidPath = '/non/existent/file.xml';
-        
+
         $this->expectException(FileOpenException::class);
         iterator_to_array($this->parser->parse($invalidPath));
     }
