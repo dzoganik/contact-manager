@@ -2,6 +2,23 @@
 
 This is a simple contact management application built on the Laravel framework.
 
+## Key Features
+
+-   **CRUD Operations:** Create, read, update, and delete contacts through a clean user interface.
+-   **High-Performance XML Import:** An efficient Artisan command capable of importing over 100,000 contacts from an XML file.
+-   **Advanced Full-Text Search:** Fast and typo-tolerant search functionality across all contact fields, powered by Laravel Scout and Meilisearch.
+-   **Testing:** The application is backed by a suite of Unit tests.
+-   **Tech Stack:** Built with Laravel 12, PHP 8.4, and runs in a containerized environment using Docker and Laravel Sail.
+
+## Key Technologies
+
+- Laravel 12
+- PHP 8.4
+- MariaDB
+- Meilisearch (for full-text search)
+- Tailwind CSS
+- Docker (via Laravel Sail)
+
 ## Requirements
 
 - Docker and Docker Compose
@@ -56,7 +73,15 @@ This is a simple contact management application built on the Laravel framework.
     ./vendor/bin/sail artisan scout:sync-index-settings
     ```
 
-The application should now be running at [http://localhost](http://localhost).
+The application should now be running at [http://localhost/contacts](http://localhost/contacts).
+
+## Running Tests
+
+To run all tests, use the following command:
+
+```bash
+./vendor/bin/sail artisan test
+```
 
 ## Data Import
 
